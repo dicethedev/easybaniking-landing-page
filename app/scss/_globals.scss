@@ -1,0 +1,224 @@
+html {
+     font-size: 100%;
+     box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after a {
+     box-sizing: inherit;
+}
+
+body {
+     margin: 0;
+     padding: 0;
+     font-family: 'Public Sans', sans-serif;
+     // 18px / 16px = 1.125rem
+     font-size: $font-medium;
+     font-weight: 300;
+     color: $grayishBlue;
+     line-height: 1.3;
+     min-height: 280vh;
+     //This controlling the riht hand side
+     //Take of this Blessing is very important =====
+     overflow-x: hidden;
+
+
+     //Responsiveness for desktop
+     @include breakpoint-up(large) {
+          font-size: $font-medium;
+     }
+
+     // check JavaScript for the functionality
+     &.noScroll {
+          overflow: hidden;
+     }
+}
+
+// Text
+h1,
+h2,
+h3 {
+     font-weight: 300;
+     color: $darkBlue;
+     line-height: 1.15;
+     margin-top: 0px;
+}
+
+h1 {
+     // 30px = 1.875rem
+     font-size: 2.3125rem;
+     margin-bottom: 24px;
+
+     //Responsiveness for desktop
+     @include breakpoint-up(large) {
+          font-size: $font-xlarge;
+     }
+}
+
+h2 {
+     // 36px / 30px / 25px
+     font-size: 1.875rem;
+     margin-bottom: 1.5625rem;
+
+     @include breakpoint-up(large) {
+          font-size: 2.25rem;
+          margin-bottom: 2.25rem;
+     }
+}
+
+p {
+     line-height: 1.5;
+     margin-bottom: 36px;
+}
+
+a,
+a:visited,
+a:hover {
+     text-decoration: none;
+}
+
+// Spacing this
+.container {
+     // 24px = 1.5rem 1110px = 69.375rem
+     max-width: 69.375rem;
+     margin: 0 auto;
+
+     //padding all
+     &--pall {
+          //70px = 4.375rem
+          padding-top: 4.375rem;
+          padding-right: 1.5rem;
+          padding-bottom: 4.375rem;
+          padding-left: 1.5rem;
+
+          @include breakpoint-up(large) {
+               //96px = 6rem
+               padding-top: 6rem;
+               padding-bottom: 6rem;
+          }
+     }
+
+     //padding 
+     &--py {
+          padding-top: 4.375rem;
+          padding-bottom: 4.375rem;
+
+
+          @include breakpoint-up(large) {
+               //96px = 6rem
+               padding-top: 6rem;
+               padding-bottom: 6rem;
+          }
+     }
+
+     //padding top
+     &--pt {
+          padding-top: 4.375rem;
+
+          @include breakpoint-up(large) {
+               //96px = 6rem
+               padding-top: 6rem;
+          }
+     }
+
+     &--px {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+     }
+
+     //padding right
+     &--pr {
+          padding-right: 1.5rem;
+     }
+
+     // padding bottom
+     &--pb {
+          padding-bottom: 4.375rem;
+
+          @include breakpoint-up(large) {
+               //96px = 6rem
+               padding-bottom: 6rem;
+          }
+     }
+
+     //padding left 
+     &--pl {
+          padding-left: 1.5rem;
+     }
+}
+
+//Flexbox styling 
+
+.flex {
+     display: flex;
+
+
+     &-jc-sb {
+          justify-content: space-between;
+     }
+
+     // justify-content
+     &-jc-c {
+          justify-content: center;
+     }
+
+     // align-items
+     &-ai-c {
+          align-items: center;
+     }
+}
+
+//Buttons
+
+button,
+.button {
+     position: relative;
+     display: inline-block;
+     // padding: 14px 35px
+     padding: 0.875rem 2.1875rem;
+     background: linear-gradient(to right, $limeGreen, $brightCyan);
+     border-radius: 50px;
+     cursor: pointer;
+     border: 0;
+     color: $white;
+     font-weight: 400;
+     font-size: $font-small;
+     transition: opacity 300ms ease-in-out;
+     overflow: hidden;
+
+     &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background-color: rgba(255, 255, 255, 0.25);
+          opacity: 0;
+          transition: opacity 150ms ease-in-out;
+     }
+
+     &:hover::before {
+          opacity: 1;
+     }
+}
+
+
+// Visibility
+
+// hide this for tablet and mobile phones
+
+.hide-for-mobile {
+     @include breakpoint-down(medium) {
+          display: none;
+     }
+}
+
+// hide this for desktop viewport widths
+
+.hide-for-desktop {
+     @include breakpoint-up(large) {
+          display: none;
+     }
+}

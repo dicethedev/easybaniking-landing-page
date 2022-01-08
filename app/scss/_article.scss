@@ -1,0 +1,84 @@
+.articles {
+     background-color: $veryLightGray;
+}
+
+.article {
+
+     &__grid {
+          display: grid;
+          //230px = 14.375rem
+          // grid-template-columns: repeat(auto-fit, minmax(14.375rem, 1fr));
+
+          //1fr is fractional ratio unit
+          //30px - 1.875rem
+          grid-template-columns: 1fr;
+          gap: 1.875rem;
+
+          //Responsiveness for Tablet device
+          @include breakpoint-up(medium) {
+               grid-template-columns: repeat(2, 1fr);
+          }
+
+          //Responsiveness for Desktop or Laptop
+          @include breakpoint-up(large) {
+               grid-template-columns: repeat(4, 1fr);
+          }
+
+     }
+
+     &__item {
+          //10px = 0.4375rem
+          border-radius: 0.4375rem;
+          overflow: hidden;
+          background-color: $white;
+          box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
+          transition: all 100ms ease-in-out;
+
+          &:hover {
+               // scale 1 = 100%
+               transform: scale(1.05);
+          }
+     }
+
+     &__img {
+          //200px = 12.5rem;
+          height: 12.5rem;
+          //"cover" is taking the entire div container
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+     }
+
+     &__text {
+          //30px - 1.875rem //padding-bottom 40px = 2.5rem
+          //padding-left, padding-right, padding-bottom, padding- top
+          padding: 1.875rem 1.875rem 2.5rem 1.875rem;
+          color: $grayishBlue;
+
+          @include breakpoint-up(medium) {
+               //25px = 1.5625rem
+               padding: 1.875rem 1.5625rem;
+          }
+     }
+
+     &__author {
+          //10px = 0.625rem 12px = 0.75rem
+          font-size: 0.625rem;
+          margin-bottom: 0.75rem;
+     }
+
+     &__title {
+          //17px = 1.0625rem 8px = 0.5rem
+          font-size: 1.0625rem;
+          line-height: 1.2;
+          color: $darkBlue;
+          margin-bottom: 0.5rem;
+     }
+
+     &__description {
+          //13px = 0.8125rem
+          font-size: 0.8125rem;
+     }
+
+
+}
